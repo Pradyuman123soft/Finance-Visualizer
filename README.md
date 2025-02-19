@@ -1,36 +1,87 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Finance Visualizer
 
-## Getting Started
+## Overview
+Finance Visualizer is a **personal finance management tool** built with **Next.js** and **Tailwind CSS**. It allows users to **track their expenses, set budgets, and analyze financial data visually** using various charts. The project includes authentication, real-time updates, and a dashboard for data visualization.
 
-First, run the development server:
+## Features
+- 💰 **Expense Tracking** - Users can add, edit, and delete transactions.
+- 📊 **Category-based Pie Chart** - Displays expenses by category with unique colors.
+- 📉 **Budget Comparison Chart** - Visualizes budget vs. actual spending.
+- 🔄 **Real-time Updates** - Reflects changes instantly on the dashboard.
+- 🔐 **Authentication System** - Secure user login using `AuthPage`.
+- 📅 **Monthly Breakdown** - Groups transactions by month for better analysis.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+## Tech Stack
+- **Frontend**: Next.js, React.js, Tailwind CSS
+- **Backend**: Node.js, Express.js
+- **Database**: MongoDB
+- **Charts**: Recharts (PieChart, BarChart, LineChart)
+- **API**: RESTful API with JSON responses
+
+## Installation & Setup
+### 1️⃣ Clone the Repository
+```sh
+git clone https://github.com/yourusername/finance-visualizer.git
+cd finance-visualizer
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### 2️⃣ Install Dependencies
+```sh
+npm install
+```
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+### 3️⃣ Set Up Environment Variables
+Create a `.env.local` file in the root directory and add:
+```env
+MONGO_URI=your_mongodb_connection_string
+NEXT_PUBLIC_API_URL=http://localhost:3000/api
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### 4️⃣ Run the Development Server
+```sh
+npm run dev
+```
+Visit **`http://localhost:3000`** in your browser.
 
-## Learn More
+## Folder Structure
+```
+finance-visualizer/
+│── components/
+│   ├── AuthPage.js
+│   ├── ExpensesChart.js
+│   ├── CategoryPieChart.js
+│   ├── BudgetComparisonChart.js
+│   ├── TransactionForm.js
+│   ├── TransactionList.js
+│── pages/
+│   ├── index.js  (Landing Page + Login)
+│   ├── dashboard.js  (Dashboard with charts)
+│   ├── transactions.js  (Transaction tracking page)
+│── api/
+│   ├── transactions.js (CRUD API for transactions)
+│   ├── budgets.js (CRUD API for budgets)
+│── styles/ (Tailwind styling)
+│── public/ (Assets, icons)
+│── .env.local (Environment variables)
+│── package.json
+│── README.md
+```
 
-To learn more about Next.js, take a look at the following resources:
+## API Endpoints
+### 🚀 Transactions API
+- **GET /api/transactions** → Fetch all transactions
+- **POST /api/transactions** → Add a new transaction
+- **PUT /api/transactions/:id** → Update a transaction
+- **DELETE /api/transactions/:id** → Delete a transaction
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### 🎯 Budgets API
+- **GET /api/budgets** → Fetch all budgets
+- **POST /api/budgets** → Set a new budget
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Contribution Guidelines
+1. **Fork** the repository.
+2. Create a new branch: `git checkout -b feature-branch`
+3. Make your changes and **commit**: `git commit -m 'Added new feature'`
+4. Push to the branch: `git push origin feature-branch`
+5. Submit a **Pull Request**!
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
